@@ -14,7 +14,7 @@ export const userSlice = createSlice({
         },
         changeUsername : (state, action) => {
             state.user.name = action.payload; // Update username property within the user object
-          }
+        }
     }
 })
 //exporting the actions
