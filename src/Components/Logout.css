@@ -1,4 +1,4 @@
-.logout> h1 {
+.logout> h1 {   
     text-align: center;
     font-size: 35px;
     margin-bottom: 15px;
@@ -14,12 +14,36 @@
     height: 100vh;
     font-family: "Inter";
   }
+  .logout__form {
+    display: flex;
+    flex-direction: column;
+  }
+  .logout>form>h1 {
+    text-align: center;
+    font-size: 35px;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    letter-spacing: -1px;
+    color: white;
+  }
+  .logout__form > input {
+    min-width: 300px;
+    padding: 20px 0;
+    padding-left: 15px;
+    margin-bottom: 10px;
+    outline: none;
+    border: 1px solid rgba(0, 0, 0, 0.24);
+    font-family: "Inter";
+    border-radius: 2px;
+    font-size: 15px;
+  }
   
   .logout__button {
 
     min-width: 300px;
     padding: 17px 30px;
     margin-top: 20px;
+    margin-bottom: 45px;
     background: rgb(107, 78, 78);
     border: none;
     color: white;

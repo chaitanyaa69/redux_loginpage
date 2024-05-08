@@ -7,47 +7,65 @@ const Login = () => {
     const [name,setName]=useState("")
     const [email,setEmail]=useState("")
     const [password,setPassword]=useState("")
+    const [errorMessage, setErrorMessage] = useState(""); 
+
     const dispatch = useDispatch();
 
     const handleSubmit= (e) =>{
-        console.log("Clicked")
-        /*console.log(`${name}`)
-        console.log(`${email}`)
-        console.log(`${password}`)*/
         e.preventDefault();
-        dispatch(
-            login({ 
-            name : name,
-            email : email,
-            password : password,
-         }));
+        let isValid = true;
+        setErrorMessage(''); // Clear any previous error message
+
+        if (name.trim() === '') {
+            isValid = false;
+        setErrorMessage('Please enter your name.');
+        } else if (email.trim() === '') {
+            isValid = false;
+        setErrorMessage('Please enter your mail address.');
+        } else if (password.trim() === '') {
+            isValid = false;
+        setErrorMessage('Please enter your password.');
+    }
+
+        if(isValid){
+            dispatch(
+                login({ 
+                name : name,
+                email : email,
+                password : password,
+             }));
+        }
+        
     };
-  return (
-    <div className="login">
-        <form className="login__form" onSubmit={(e)=>handleSubmit(e)}>
+    return (
+        <div className="login">
+          <form className="login__form" onSubmit={handleSubmit}>
             <h1>Login Here</h1>
-            <input type="name" 
-                placeholder="Name"
-                value={name}
-                onChange={(e)=>setName(e.target.value)}
+            {errorMessage && <p className="error-message">{errorMessage}</p>}
+            <input
+              type="text"
+              placeholder="Name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
             />
-            <input type="email" 
-                placeholder="Email" 
-                value={email}
-                onChange={(e)=>setEmail(e.target.value)}
+            <input
+              type="email"
+              placeholder="Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
             />
-            <input type="current-password" 
-                placeholder="Password" 
-                value={password}
-                onChange={(e)=>setPassword(e.target.value)}
+            <input
+              type="password"
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
             />
-            <button type="submit"
-             className="submit__btn">
-                Submit
-             </button>
-        </form>
-    </div>
-  )
+            <button type="submit" className="submit__btn">
+              Submit
+            </button>
+          </form>
+        </div>
+      );
 }
 
 export default Login;

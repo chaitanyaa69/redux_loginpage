@@ -43,3 +43,9 @@
     font-family: "Inter";
     border-radius: 3px;
   }
+  .error-message {
+    color: rgb(224, 198, 198); 
+    margin-bottom: 30px;
+    font-weight: normal;
+    text-align:center;
+  }
