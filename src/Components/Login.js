@@ -14,7 +14,7 @@ const Login = () => {
     const handleSubmit= (e) =>{
         e.preventDefault();
         let isValid = true;
-        setErrorMessage(''); // Clear any previous error message
+        setErrorMessage('');
 
         if (name.trim() === '') {
             isValid = false;
